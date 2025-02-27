@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row p-5 bg-success text-light">
+        <div class="col-lg-2">
+
+        </div>
+        <div class="col-lg-4 text-light">
+            <h1>The Easiest Way <br>to make your <br> Favouite Meal</h1>
+            <p style="text-align: justify">Discover 100+ recipes i myur hand with the best recipe. help you find the easiest way to cook</p>
+            <a routerLink="/all-recipes" class="btn btn-primary">Explore Recipes</a>
+        </div>
+        <div class="col-lg-6">
+            <img class="w-50 landingImg " style="margin-left: 150px;" src="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-beautiful-food-bowl-png-image_10229882.png" alt="">
+        </div>
+    </div>
+    <!-- popular recipes -->
+     <div class="my-5 p-5">
+        <h1>popular recipes of the week</h1>
+        <div class="d-flex justify-content-between">
+            <p>Our most popular recipes of the week</p>
+            <a routerLink="/all-recipes" class="text-primary">View All</a>
+        </div>
+        <div class="row my-3">
+            @for (recipe of allRecipes; track $index) {
+                <!-- each recipe -->
+                <div class="col-lg-4">
+                    <div class="p-3">
+                        <img class="card-img-top landingImg " [src]="recipe.image" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{recipe.name}}</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+     </div>
+    <!-- banner section -->
+    <div style="height: 400px; background-image: url('https://static.vecteezy.com/system/resources/thumbnails/049/647/928/small_2x/delicious-indian-meal-with-biryani-rice-photo.jpeg'); background-size: cover;" class="row align-items-center my-5">
+        <div class="col-lg-6">
+        </div>
+        <div class="col-lg-6">
+            <div class="bg-light rounded p-5 w-75">
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quidem?</h3>
+                <p class="text-secondary mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quidem?</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- DOWNLOAD APP -->
+    <div style="height: 450px;" class="my-5 row align-items-center text-light bg-success rounded p-5">
+        <div class="col">
+            <img class="container w-100" height="350px" src="https://scrantonsbdc.com/wp-content/uploads/2014/08/new-app-banner-slider-e1453239087304.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="text-center my-5">
+        <h1>Client Testimonials</h1>
+        <marquee >
+            <div class="d-flex my-5">
+                <!-- testimony-->
+                <div class="rounded border w-100 p-3 me-2">
+                    <h5>Name</h5>
+                    <p style="white-space: normal; width: 100%; text-align: justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi vitae dolores quod cupiditate exercitationem.</p>
+                </div>
+            </div>
+        </marquee>
+
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="row align-items-center">
+      <!-- Registration Form Column -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div class="card p-4 shadow-sm border-0">
+          <h2 class="text-center mb-4">Cookpedia Registration</h2>
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" formControlName="username" ngModel required>
+            </div>
+            @if(registerForm.get('username')?.errors && registerForm.get('username')?.touched){
+              <div class="text-danger">Username is required</div>              
+            }
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" formControlName="email" ngModel required email>
+            </div>
+            @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched){
+              <div class="text-danger">Email is required</div>              
+            }
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" formControlName="password" ngModel required minlength="6">
+            </div>
+            @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched){
+              <div class="text-danger">Password is required</div>
+            }
+            <button type="submit" class="btn btn-success w-100">Register</button>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Content Column -->
+      <div class="col-md-6">
+        <div class="card p-4 shadow-sm border-0">
+          <h2 class="mb-4">Create New Account</h2>
+          <h3 class="text-muted mb-4">What you will get?</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2">Different Recipes</li>
+            <li class="mb-2">Easy way to Make Recipe</li>
+            <li class="mb-2">Save your Favorite Recipes</li>
+            <li class="mb-2">Download your Recipes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>
