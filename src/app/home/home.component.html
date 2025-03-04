@@ -54,19 +54,25 @@
         </div>
     </div>
 
+    
     <!-- Testimonials -->
-    <div class="text-center my-5">
-        <h1>Client Testimonials</h1>
-        <marquee >
-            <div class="d-flex my-5">
-                <!-- testimony-->
-                <div class="rounded border w-100 p-3 me-2">
-                    <h5>Name</h5>
-                    <p style="white-space: normal; width: 100%; text-align: justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi vitae dolores quod cupiditate exercitationem.</p>
+<div class="text-center my-5">
+    <h1>Client Testimonials</h1>
+    <marquee behavior="" direction="">
+        <div class="row">
+            @for(testimonial of allTestimonials; track $index){
+                <div class="col-lg-4">
+                    <div class="p-3 d-flex">
+                        <div class="card-body">
+                            <h5 class="card-title">{{testimonial.name}}</h5>
+                            <p class="card-text">{{testimonial.message}}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </marquee>
-
-    </div>
+            }
+        </div>
+    </marquee>
+    
+</div>
 </div>
 <app-footer></app-footer>

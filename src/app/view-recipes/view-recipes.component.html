@@ -6,8 +6,8 @@
             <br>
             <img class="img-fluid my-3" [src]="recipe.image" alt="Recipe Image">
             <div class="d-flex justify-content-between mt-3">
-                <button class="btn btn-success" aria-label="Download Recipe">Download Button</button>
-                <button class="btn btn-primary" aria-label="Save Recipe">Save recipe</button>
+                <button (click)="downloadRecipe()" class="btn btn-success" aria-label="Download Recipe">Download Button</button>
+                <button (click)="saveRecipe()" class="btn btn-primary" aria-label="Save Recipe">Save recipe</button>
             </div>
         </div>
         <div class="col-lg-6">

@@ -15,12 +15,22 @@ export class HomeComponent {
 
   ngOnInit(){
     this.getAllRecipes()
+    this.getAllTestimonials()
   }
   
   getAllRecipes(){
     this.api.getAllRecipeAPI().subscribe((res:any)=>{
       this.allRecipes = res.slice(0,6)
       console.log(this.allRecipes);
+    })
+  }
+
+  //all approved tesimonials
+  allTestimonials:any=[]
+  getAllTestimonials(){
+    this.api.allTestimonialsAPI().subscribe((res:any)=>{
+      this.allTestimonials=res
+      console.log(this.allTestimonials);
     })
   }
 
