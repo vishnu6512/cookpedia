@@ -102,4 +102,9 @@ export class ApiService {
     return this.http.get(`${this.server_url}/approved-testimonials`)
   }
 
+  //add recipes
+  addRecipeAPI(reqBody:any){
+    return this.http.post(`${this.server_url}/recipe/add`,reqBody,this.appendToken())
+  }
+
 }
