@@ -3,8 +3,15 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="col-lg-10">
-        <h1 class="my-2 text-center">Add Recipe Details</h1>
-        <div class="container my-5 rounded text-center p-5 shadow w-75">
+        @if(id){
+            <h1 class="my-2 text-center">Update Recipe Details</h1>
+        } @else {
+            <h1 class="my-2 text-center">Add Recipe Details</h1>
+        }
+        <div class="container mt-5 rounded text-center p-5 shadow w-75">
+            @if(recipeDetails.image){
+                <img class="mb-2" width="150px" height="150px" src="{{recipeDetails.image}}" alt="no image">
+            }
             <div class="row">
                 <div class="col-lg-6">
                     <div class="mb-2">
@@ -50,7 +57,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="">Choose Difficulty Type</label>
-                        <select [(ngModel)]="recipeDetails.difficulty" name="difficulty" id="difficulty" class="form-control">
+                        <select [(ngModel)]="recipeDetails.difficulty" name="difficulty" id="difficulty" class="form-control" #difficultySelect="ngModel">
                             <option value="" selected disabled hidden>Select Difficulty</option>
                             <option value="easy">Easy</option>
                             <option value="medium">Medium</option>
@@ -73,12 +80,22 @@
             </div>
             <div class="mb-3">
                 <div class="border rounded p-2">
-                    <p class="mb-2">Choose meal type</p>
+                    <p class="mb-2">Choose meal type:
+                        @if(id){
+                            @for (item of mealArray; track $index) {
+                                <span class="me-1 border rounded p-1">{{item}} <button (click)="removeMealType(item); uncheckMealType(item)" class="btn"><i class="fa-solid fa-close"></i></button></span>
+                            }
+                        } @else {
+                            @for (item of mealArray; track $index) {
+                                <span class="me-1 border rounded p-1">{{item}}</span>
+                            }   
+                        }
+                    </p>
                     <div class="d-flex flex-wrap my-2">
                         @for (meal of mealTypeArray; track $index) {
-                            <div class="border rounded p-1 me-2">
+                            <div  class="border rounded p-1 me-2">
                                 <label  [for]="meal">
-                                    <input  type="checkbox" [name]="meal" [id]="meal" class="me-2">
+                                    <input #mealCheckbox (change)="mealTypeSelect($event)"  type="checkbox" [name]="meal" [id]="meal" class="me-2">
                                     {{meal}}
                                 </label>
                             </div>
@@ -86,7 +103,11 @@
                     </div>                    
                 </div>            
             </div>
-            <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
-        </div>
+            @if(id) {
+                <button (click)="editRecipe()" class="btn btn-warning">Update Recipe</button>
+            } @else {
+                <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
+            }
+            </div>
     </div>
 </div>

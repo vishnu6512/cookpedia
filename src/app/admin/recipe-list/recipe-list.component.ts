@@ -23,6 +23,12 @@ export class RecipeListComponent {
     })
   }
 
+  deleteRecipe(id:string){
+    this.api.deleteRecipeAPI(id).subscribe((res:any)=>{
+      this.getAllRecipes()
+    })
+  }
+
   
 
 

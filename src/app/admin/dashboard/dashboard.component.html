@@ -1,8 +1,26 @@
+<!-- Update the sidebar div to use ngClass -->
 <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-2 bg-success" [ngClass]="{'d-none': !isSidebarOpen}">
         <app-sidebar></app-sidebar>
     </div>
-    <div class="col-lg-10">
-        <p>Dashboard</p>
+    <div [ngClass]="{'col-lg-10': isSidebarOpen, 'col-lg-12': !isSidebarOpen}">
+        <!-- navbar -->
+        <div class="row bg-warning text-light p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1> 
+                    <button (click)="toggleSidebar()" class="btn">
+                        <i class="fa-solid" [ngClass]="{'fa-bars': !isSidebarOpen, 'fa-times': isSidebarOpen}"></i>
+                    </button>
+                    Welcome to Admin Dashboard
+                </h1>
+                <div>
+                    <button type="button" data-bs-toggle="dropdown" class="btn dropdown-toggle text-light"><i class="fa-solid fa-user"></i></button>
+                    <ul class="dropdown-menu text-center">
+                        <li><button class="btn  w-100">Logout <i class="fa-solid fa-right-from-bracket"></i>
+                        </button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

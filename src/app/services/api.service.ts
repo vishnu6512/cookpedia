@@ -107,4 +107,14 @@ export class ApiService {
     return this.http.post(`${this.server_url}/recipe/add`,reqBody,this.appendToken())
   }
 
+  //edit recipe
+  editRecipeAPI(reqBody:any){
+    return this.http.put(`${this.server_url}/recipe/${reqBody._id}/edit`,reqBody,this.appendToken())
+  }
+
+  //delete recipe
+  deleteRecipeAPI(recipeId:string){
+    return this.http.delete(`${this.server_url}/recipe/${recipeId}/delete`,this.appendToken())
+  }
+
 }
